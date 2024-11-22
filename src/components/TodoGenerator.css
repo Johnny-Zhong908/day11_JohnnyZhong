@@ -1,0 +1,10 @@
+.todo-generator-wrapper {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+
+  input {
+    width: 250px;
+    height: 24px;
+  }
+}
