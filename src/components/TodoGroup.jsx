@@ -1,14 +1,17 @@
+import { useContext } from "react";
+import { TodoListContext } from "../context/TodoListContext";
 import TodoItem from "./TodoItem";
 
-const TodoGroup = (props) => {
+const TodoGroup = () => {
+  const { state } = useContext(TodoListContext)
   return (
       <div>
-        <span>This is TodoGroup</span>
-        {props.todoList.map((todo) => {
-          return <TodoItem todo={todo} key={todo.id}/>
+        {state.map((todo) => {
+          return <TodoItem key={todo.id} todo={todo}/>
         })}
       </div>
   );
 }
 
 export default TodoGroup;
+

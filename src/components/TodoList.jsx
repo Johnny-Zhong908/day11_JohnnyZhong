@@ -12,7 +12,7 @@ const TodoList = () => {
 
   return (
       <div>
-        <span>This is TodoList</span>
+        <h2>{"Todo List"}</h2>
         <TodoGroup todoList={todoList}/>
         <TodoGenerator addTodo={handleAddTodo}/>
       </div>

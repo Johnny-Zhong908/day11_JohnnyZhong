@@ -1,17 +1,21 @@
 import "./TodoGenerator.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { TodoListContext } from "../context/TodoListContext";
 
-const TodoGenerator = (props) => {
-  const [text, setText] = useState("");
+const TodoGenerator = () => {
+  const [text, setText] = useState("")
+  const { dispatch } = useContext(TodoListContext);
 
   const handleChange = (event) => {
-    setText(event.target.value);
-  };
-
+    setText(event.target.value)
+  }
 
   const handleAdd = () => {
-    props.addTodo(text);
-  };
+    if (text.trim()) {
+      dispatch({ type: 'ADD_TODO', payload: text });
+    }
+  }
+
   return(
       <div className={"todo-generator-wrapper"}>
         <input maxLength={100} value={text} onChange={handleChange}/>

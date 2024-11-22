@@ -1,10 +1,14 @@
+import React from "react";
 import './App.css';
 import TodoList from "./components/TodoList";
+import { TodoListProvider } from "./context/TodoListContext";
 
 function App() {
   return (
     <div className="App">
-      <TodoList/>
+      <TodoListProvider>
+        <TodoList/>
+      </TodoListProvider>
     </div>
   );
 }
