@@ -6,8 +6,7 @@ const TodoList = () => {
   const [todoList, setTodoList] = useState([]);
 
   const handleAddTodo = (text) => {
-    console.log(text)
-    setTodoList([...todoList, {id: Date.now(), text}]);
+    setTodoList([...todoList, text]);
   }
 
   return (

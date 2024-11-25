@@ -1,14 +1,16 @@
+import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from "./todoActions";
+
 export const initialState = [];
 
 export const todoListReducer = (state, action) => {
   switch (action.type) {
-    case 'ADD_TODO':
+    case ADD_TODO:
       return [...state, { id: Date.now(), text: action.payload, done: false }];
-    case 'TOGGLE_TODO':
+    case TOGGLE_TODO:
       return state.map((todo) =>
           todo.id === action.payload ? { ...todo, done: !todo.done } : todo
       );
-    case 'REMOVE_TODO':
+    case REMOVE_TODO:
       return state.filter((todo) => todo.id !== action.payload);
     default:
       return state;
