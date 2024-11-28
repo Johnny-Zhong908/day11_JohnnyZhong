@@ -1,32 +1,28 @@
-import React, { useContext, useState } from "react";
-import { TodoContext } from "../context/TodoContext";
-import styles from "./TodoGenerator.module.css";
+import React, { useState, useContext } from "react";
+import { TodoContext } from "./TodoContext";
 
 const TodoGenerator = () => {
-    const [text, setText] = useState("");
+    const [inputValue, setInputValue] = useState("");
     const { dispatch } = useContext(TodoContext);
 
-    const handleInputChange = (e) => {
-        setText(e.target.value);
-    };
-
     const handleAdd = () => {
-        text && dispatch({ type: "ADD", payload: { text } });
-        setText("");
+        if (inputValue.trim() === "") {
+            dispatch({ type: "ADD_TODO", payload: "This is a default task" });
+        } else {
+            dispatch({ type: "ADD_TODO", payload: inputValue });
+            setInputValue("");
+        }
     };
 
     return (
-        <div className={styles.generatorContainer}>
+        <div className="todo-generator">
             <input
                 type="text"
-                className={styles.input}
-                value={text}
-                onChange={handleInputChange}
                 placeholder="Add the things you need to do today..."
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
             />
-            <button className={styles.addButton} onClick={handleAdd}>
-                add
-            </button>
+            <button onClick={handleAdd}>add</button>
         </div>
     );
 };

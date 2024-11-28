@@ -1,27 +1,20 @@
 import React, { useContext } from "react";
 import TodoItem from "./TodoItem";
-import { TodoContext } from "../context/TodoContext";
-import TodoGenerator from "./TodoGenerator";
-import styles from "./TodoGroup.module.css";
+import { TodoContext } from "./TodoContext";
+import "./Todo.css";
 
 const TodoGroup = () => {
     const { state } = useContext(TodoContext);
 
-    const todoItems = state.map((todo) => (
-        <TodoItem key={todo.id} id={todo.id} text={todo.text} done={todo.done} />
-    ));
+    if (state.todos.length === 0) {
+        return <p>No todos for today!</p>;
+    }
 
     return (
-        <div className={styles.groupContainer}>
-            <h1 className={styles.title}>Todo List</h1>
-            {state.length === 0 ? (
-                <div className={styles.emptyState}>
-                    Add the things you need to do today...
-                </div>
-            ) : (
-                todoItems
-            )}
-            <TodoGenerator />
+        <div className="todo-group">
+            {state.todos.map((todo) => (
+                <TodoItem key={todo.id} {...todo} />
+            ))}
         </div>
     );
 };

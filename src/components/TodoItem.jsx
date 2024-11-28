@@ -1,30 +1,29 @@
 import React, { useContext } from "react";
-import { TodoContext } from "../context/TodoContext";
-import styles from "./TodoItem.module.css";
-
-const TodoItem = (props) => {
-    const { id, text, done } = props;
+import { TodoContext } from "./TodoContext";
+import "./Todo.css";
+const TodoItem = ({ id, text, completed }) => {
     const { dispatch } = useContext(TodoContext);
 
-    const handleDelete = () => {
-        dispatch({ type: "DELETE", payload: { id } });
+    const toggleComplete = () => {
+        dispatch({ type: "TOGGLE_TODO", payload: id });
     };
 
-    const handleToggle = () => {
-        dispatch({ type: "TOGGLE", payload: { id } });
+    const deleteTodo = () => {
+        dispatch({ type: "DELETE_TODO", payload: id });
     };
 
     return (
-        <div className={styles.itemContainer}>
-            <div
-                className={`${styles.text} ${done ? styles.done : ""}`}
-                onClick={handleToggle}
-            >
-                {text}
-            </div>
-            <button className={styles.deleteButton} onClick={handleDelete}>
-                x
-            </button>
+        <div className="todo-item">
+      <span
+          onClick={toggleComplete}
+          style={{
+              textDecoration: completed ? "line-through" : "none",
+              cursor: "pointer",
+          }}
+      >
+        {text}
+      </span>
+            <button onClick={deleteTodo}>X</button>
         </div>
     );
 };
