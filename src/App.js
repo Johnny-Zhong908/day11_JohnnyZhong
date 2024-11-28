@@ -1,16 +1,13 @@
 import React from "react";
-import './App.css';
 import TodoList from "./components/TodoList";
-import { TodoListProvider } from "./context/TodoListContext";
+import { TodoProvider } from "./components/TodoContext";
 
-function App() {
-  return (
-    <div className="App">
-      <TodoListProvider>
-        <TodoList/>
-      </TodoListProvider>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <TodoProvider>
+            <TodoList />
+        </TodoProvider>
+    );
+};
 
 export default App;
