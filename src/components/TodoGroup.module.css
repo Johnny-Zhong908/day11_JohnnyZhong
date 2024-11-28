@@ -1,0 +1,21 @@
+.groupContainer {
+    max-width: 500px;
+    margin: 50px auto;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.emptyState {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 20px;
+}

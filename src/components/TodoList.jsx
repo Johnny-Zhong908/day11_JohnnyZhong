@@ -1,14 +1,13 @@
-import TodoGenerator from "./TodoGenerator";
+import React from "react";
 import TodoGroup from "./TodoGroup";
+import styles from "./TodoList.module.css";
 
 const TodoList = () => {
-  return (
-      <div>
-        <h2>{"Todo List"}</h2>
-        <TodoGroup/>
-        <TodoGenerator/>
-      </div>
-  );
-}
+    return (
+        <div className={styles.todoListContainer}>
+            <TodoGroup />
+        </div>
+    );
+};
 
 export default TodoList;
