@@ -1,24 +1,32 @@
-import "./TodoItem.css";
-import { TodoListContext } from "../context/TodoListContext";
-import { useContext } from "react";
-import { REMOVE_TODO, TOGGLE_TODO } from "../context/todoActions";
+import React, { useContext } from "react";
+import { TodoContext } from "../context/TodoContext";
+import styles from "./TodoItem.module.css";
 
-const TodoItem = ({todo}) => {
-  const { dispatch } = useContext(TodoListContext);
+const TodoItem = (props) => {
+    const { id, text, done } = props;
+    const { dispatch } = useContext(TodoContext);
 
-  const handleToggleTodo = () => {
-    dispatch({ type: TOGGLE_TODO, payload: todo.id });
-  };
+    const handleDelete = () => {
+        dispatch({ type: "DELETE", payload: { id } });
+    };
 
-  const removeTodo = () => {
-    dispatch({ type: REMOVE_TODO, payload: todo.id })
-  };
-  return (
-      <div className={"todo-item-wrapper"}>
-        <div className={`todo-text ${todo.done ? "done" : ""}`} onClick={handleToggleTodo}>{todo.text}</div>
-        <button onClick={removeTodo}>X</button>
-      </div>
-  );
-}
+    const handleToggle = () => {
+        dispatch({ type: "TOGGLE", payload: { id } });
+    };
+
+    return (
+        <div className={styles.itemContainer}>
+            <div
+                className={`${styles.text} ${done ? styles.done : ""}`}
+                onClick={handleToggle}
+            >
+                {text}
+            </div>
+            <button className={styles.deleteButton} onClick={handleDelete}>
+                x
+            </button>
+        </div>
+    );
+};
 
 export default TodoItem;
