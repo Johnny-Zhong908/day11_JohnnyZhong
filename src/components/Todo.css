@@ -43,3 +43,22 @@
     font-weight: bold;
     cursor: pointer;
 }
+.done-list {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+.done-list h1 {
+    text-align: center;
+    color: #333;
+}
+
+.done-list p {
+    text-align: center;
+    color: #888;
+}
+
+.done-list .todo-item {
+    margin: 10px 0;
+}
