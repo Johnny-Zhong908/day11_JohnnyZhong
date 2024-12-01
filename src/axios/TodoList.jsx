@@ -14,4 +14,16 @@ const TodoList = ()=>{
             setError(err.message);
         }
     };
+    const addTodo = async () => {
+        try {
+            const response = await axios.post(API_URL, {
+                text: newTodo,
+                done: false,
+            });
+            setTodos([...todos, response.data]);
+            setNewTodo('');
+        } catch (err) {
+            setError(err.message);
+        }
+    };
 }
