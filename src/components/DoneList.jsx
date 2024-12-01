@@ -1,6 +1,7 @@
 import {useContext} from "react";
 import {TodoContext} from "./TodoContext";
 import TodoItem from "./TodoItem";
+import "./Todo.css";
 
 const DoneList=()=> {
     const {state} = useContext(TodoContext);

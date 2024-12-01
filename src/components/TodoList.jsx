@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import TodoGroup from "./TodoGroup";
 import TodoGenerator from "./TodoGenerator";
 import "./Todo.css";
-import {Link} from "react-router-dom";
 import {Navigate} from "react-router-dom";
 
 const TodoList = () => {
