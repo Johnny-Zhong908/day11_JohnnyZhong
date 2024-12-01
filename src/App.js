@@ -4,6 +4,8 @@ import TodoList from "./components/TodoList";
 import DoneList from "./components/DoneList";
 import NotFound from "./components/NotFound";
 import { TodoProvider } from "./components/TodoContext";
+import AxiosTodoList from "./axios/AxiosTodoList"
+
 
 const App = () => {
     return (
@@ -13,10 +15,11 @@ const App = () => {
                     <Route path="/" element={<TodoList />} />
                     <Route path="/done" element={<DoneList />} />
                     <Route path="*" element={<NotFound />} />
+                    <Route path="/axios" element={<AxiosTodoList />} />
                 </Routes>
             </TodoProvider>
         </Router>
+
     );
 };
-
 export default App;
