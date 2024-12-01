@@ -26,4 +26,12 @@ const TodoList = ()=>{
             setError(err.message);
         }
     };
+    const updateTodo = async (id, updatedData) => {
+        try {
+            const response = await axios.put(`${API_URL}/${id}`, updatedData);
+            setTodos(todos.map(todo => (todo.id === id ? response.data : todo)));
+        } catch (err) {
+            setError(err.message);
+        }
+    };
 }
