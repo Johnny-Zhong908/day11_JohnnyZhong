@@ -13,6 +13,9 @@ const TodoList = () => {
             <p>
                 <Link to="/nonexistent-route">Go to 404 Page</Link>
             </p>
+            <p>
+                <Link to="/done">Go to Done List</Link>
+            </p>
         </div>
     );
 };
