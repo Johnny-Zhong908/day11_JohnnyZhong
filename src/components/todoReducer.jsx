@@ -1,9 +1,6 @@
 const todoReducer = (state, action) => {
     switch (action.type) {
         case "ADD_TODO":
-            if (state.todos.length >= 3) {
-                return { todos: [] };
-            }
             return {
                 ...state,
                 todos: [
